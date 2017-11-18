@@ -13,7 +13,7 @@ mongoose.connection.on('error', function() {
     process.exit();
 });
 mongoose.connection.once('open', function() {
-    console.log("Connecté avec succès à la base de données");
+    console.log("Connecté avec succès de la base de données");
 })
 
 
