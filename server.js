@@ -20,7 +20,7 @@ mongoose.connection.once('open', function() {
 
 
 app.get('/', function(req, res){
-    res.json({"message": "Bienvenue...................... ."});
+    res.json({"message": "Bienvenue."});
 });
 require('./app/routes/bus.routes.js')(app);
 
