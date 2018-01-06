@@ -1,11 +1,11 @@
 var Station = require('../models/station.model.js');
 
 exports.create = function(req, res) {
-    if(!req.body.lieu) {
+    if(!req.body.titre) {
         res.status(400).send({message: "lieu  ne peux pas être vide"});
     }
 
-    var station = new Station({titre: req.body.titre , lieu: req.body.lieu});
+    var station = new Station(req.body);
 
     station.save(function(err, data) {
         console.log(data);
@@ -46,6 +46,8 @@ exports.update = function(req, res) {
 
         station.titre = req.body.titre;
         station.lieu = req.body.lieu;
+        station.position.longitude=req.params.position.longitude;
+        station.position.latitude=req.params.position.latitude;
 
         station.save(function(err, data){
             if(err) {

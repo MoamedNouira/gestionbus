@@ -30,5 +30,38 @@ var Bus = require('../controllers/bus.controller.js');
     
         app.delete('/Station/:StationId', Station.delete);
 
+        
 
-}
+        ///////////////////////////////--- Lignes---////////////////////////////////////////
+
+
+        var Ligne = require('../controllers/ligne.controller.js');
+       
+        
+            app.post('/Ligne', Ligne.create);
+            app.get('/Lignes', Ligne.findAll);
+            app.get('/Ligne/:LigneId', Ligne.findOne);
+           app.delete('/Ligne/:LigneId', Ligne.delete);
+          // app.post('/LigneStation/:LigneId/:StationId', Ligne.affecter);
+
+
+
+///////////////////////////////--- Users---////////////////////////////////////////
+
+
+var User = require('../controllers/User.controller.js');
+
+            app.post('/User', User.create);
+            app.get('/Users', User.findAll);
+            app.get('/User/:UserId', User.findOne);
+            app.delete('/User/:UserId', User.delete);
+
+          
+       
+       };
+         
+       
+        
+           
+
+
