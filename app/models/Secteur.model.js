@@ -9,7 +9,6 @@ var SecteurSchema = mongoose.Schema({
    nom: String,
    id_responsable : Number ,
    lignes: [{ type: Schema.Types.ObjectId, ref: 'Ligne' }]
-   //lignes: [{ type: String}]
 
 });
 
