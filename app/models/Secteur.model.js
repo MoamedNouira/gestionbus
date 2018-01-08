@@ -7,7 +7,7 @@ var lignes = require('../models/Ligne.model.js');
 
 var SecteurSchema = mongoose.Schema({
    nom: String,
-   id_responsable : Number ,
+   idresponsable : String,
    lignes: [{ type: Schema.Types.ObjectId, ref: 'Ligne' }]
 
 });

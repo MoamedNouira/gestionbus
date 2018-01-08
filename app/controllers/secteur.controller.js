@@ -45,7 +45,7 @@ exports.update = function(req, res) {
         }
 
         secteur.nom = req.body.nom;
-        secteur.id_responsable = req.body.id_responsable;
+        secteur.idresponsable = req.body.idresponsable;
         secteur.lignes=req.params.lignes;
 
         secteur.save(function(err, data){
@@ -68,13 +68,13 @@ exports.delete = function(req, res) {
     });
 };
 
-exports.setLigne = function(req, res) {
+exports.setResponsable = function(req, res) {
     Secteur.findById(req.params.secteurId, function(err, secteur) {
         if(err) {
             res.status(500).send({message: "Impossible de trouver un secteur avec l'id " + req.params.secteurId});
         }
 
-        secteur.lignes = req.body.lignes;
+        secteur.idresponsable = req.body.idresponsable;
 
         secteur.save(function(err, data){
             if(err) {
