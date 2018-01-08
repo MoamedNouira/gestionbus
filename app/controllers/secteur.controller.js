@@ -59,12 +59,30 @@ exports.update = function(req, res) {
 };
 
 exports.delete = function(req, res) {
-    Secteur.remove({_id: req.params.SecteurId}, function(err, data) {
+    Secteur.findById(req.params.SecteurId, function(err, secteur) {
         if(err) {
             res.status(500).send({message: "Impossible de supprimer station avec id " + req.params.id});
         } else {
             res.send({message: "station supprimé avec succès!"})
         }
+    });
+};
+
+exports.setLigne = function(req, res) {
+    Secteur.findById(req.params.secteurId, function(err, secteur) {
+        if(err) {
+            res.status(500).send({message: "Impossible de trouver un secteur avec l'id " + req.params.secteurId});
+        }
+
+        secteur.lignes = req.body.lignes;
+
+        secteur.save(function(err, data){
+            if(err) {
+                res.status(500).send({message: "Impossible de mettre à jour le secteur avec id " + req.params.secteurId});
+            } else {
+                res.send(data);
+            }
+        });
     });
 };
 

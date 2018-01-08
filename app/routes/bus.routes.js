@@ -109,6 +109,11 @@ module.exports = function(app) {
         
             app.delete('/Secteur/:SecteurId', Secteur.delete);
 
+
+            app.put('/SecteurSetLigne/:secteurId', Secteur.setLigne);
+
+
+
             
 
     
