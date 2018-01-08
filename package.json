@@ -15,10 +15,14 @@
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "express": "^4.15.3",
+<<<<<<< HEAD
     "jsonwebtoken": "^8.1.0",
     "mongoose": "^4.10.1",
     "morgan": "^1.9.0",
     "passport": "^0.4.0",
     "passport-jwt": "^3.0.1"
+=======
+    "mongoose": "^4.10.8"
+>>>>>>> dc5249e9f4f2086c5a410c832c2db285e7674b15
   }
 }

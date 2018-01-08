@@ -49,7 +49,7 @@ module.exports = function(app) {
 
               
 
-    ///////////////////////////////--- responsables --- ////////////////////////////////////////
+    ///////////////////////////////--- responsables ---////////////////////////////////////////
 
     var Responsable = require('../controllers/responsable.controller.js');
     
