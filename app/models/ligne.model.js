@@ -14,5 +14,5 @@ var LigneSchema = mongoose.Schema({
 });
 
 
-module.exports = mongoose.model('ligne', LigneSchema);
+module.exports = mongoose.model('Ligne', LigneSchema);
 
