@@ -1,12 +1,28 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+
+var morgan = require('morgan');  
+var passport = require('passport');  
+var jwt = require('jsonwebtoken');  
+  var  dbConfig = require('./config/database.config.js');
+
+var mongoose = require('mongoose');
+
 var app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+app.use(morgan('dev'));  
+// Initialize passport for use
+app.use(passport.initialize());  
 
-var dbConfig = require('./config/database.config.js');
-var mongoose = require('mongoose');
+// Bring in defined Passport Strategy
+require('./config/passport')(passport);  
+
+
+
+
+
 mongoose.connect(dbConfig.url);
 mongoose.connection.on('error', function() {
     console.log('Impossible de se connecter à la base de données. Quitter maintenant ...');

@@ -1,3 +1,4 @@
 module.exports = {
-    url: 'localhost:27017/gestionbus'
+    url: 'localhost:12345/gestionbus',
+    'secret': 'putsomethingtopsecrethere'
 }
