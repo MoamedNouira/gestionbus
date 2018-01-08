@@ -79,7 +79,11 @@ exports.setLigne = function(req, res) {
             res.status(500).send({message: "Impossible de trouver un bus avec l'id " + req.params.busId});
         }
 
-        bus.ligne = req.body.ligne;
+        //bus.ligne = req.body.ligne;
+        var findLigne =  bus.ligne;
+
+        bus.ligne = findLigne.concat(req.body.ligne);
+
 
         bus.save(function(err, data){
             if(err) {

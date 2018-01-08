@@ -76,6 +76,7 @@ exports.setResponsable = function(req, res) {
 
         secteur.idresponsable = req.body.idresponsable;
 
+
         secteur.save(function(err, data){
             if(err) {
                 res.status(500).send({message: "Impossible de mettre à jour le secteur avec id " + req.params.secteurId});

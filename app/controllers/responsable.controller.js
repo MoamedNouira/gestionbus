@@ -71,7 +71,8 @@ exports.setSecteur = function(req, res) {
             res.status(500).send({message: "Impossible de trouver un bus avec l'id " + req.params.responsableId});
         }
 
-        responsable.secteur = req.body.secteur;
+        var findSecteur =  responsable.secteur;
+        responsable.secteur = findSecteur.concat(req.body.secteur);
 
         responsable.save(function(err, data){
             if(err) {
