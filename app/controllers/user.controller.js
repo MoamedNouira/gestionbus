@@ -4,13 +4,15 @@ var jwt = require('jsonwebtoken');
 exports.register = function(req, res) {
   
     if(!req.body.email || !req.body.password || !req.body.nom || !req.body.prenom) {
-        res.json({ success: false, message: 'Please enter email and password.' });
+        res.json({ success: false, message: 'Please enter email and password and nom,prenom .' });
       } else {
         var newUser = new User({
           nom:req.body.nom,
           prenom:req.body.prenom,
           email: req.body.email,
-          password: req.body.password
+          password: req.body.password,
+          role: req.body.role
+
         });
     
         // Attempt to save the user
@@ -44,7 +46,7 @@ exports.authenticate = function(req, res) {
                 
                 expiresIn: 10080 // in seconds
             });
-            res.json({ success: true, token: 'JWT ' + token });
+            res.json({ success: true, token: 'JWT ' + token ,role:user.role});
           } else {
             res.send({ success: false, message: 'Authentication failed. Passwords did not match.' });
           }
@@ -53,5 +55,15 @@ exports.authenticate = function(req, res) {
     });
   };
 
+
+  exports.findAll = function(req, res) {
+    User.find(function(err, allUser){
+        if(err) {
+            res.status(500).send({message: "Une erreur s'est produite lors de la récupération des User."});
+        } else {
+            res.send(allUser);
+        }
+    });
+};
 
 

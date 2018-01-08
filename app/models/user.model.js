@@ -20,7 +20,7 @@ var UserSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    enum: ['client', 'responsable', 'agent'],
+    enum: ['client', 'admin'],
     default: 'client'
   }
 });

@@ -92,6 +92,9 @@ module.exports = function(app) {
             app.get('/User/getId', passport.authenticate('jwt', { session: false }), function(req, res) {  
                 res.send('It worked! User id is: ' + req.user._id + '.');
               });
+
+              app.get('/Users', User.findAll);
+
               
 
 
